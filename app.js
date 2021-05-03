@@ -1,8 +1,23 @@
 const express = require('express')
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const feedRoutes = require('./routes/feed')
+
 const app = express()
 
-app.get('/', (req, res) => res.send('Hello Daniel!'))
+app.use(bodyParser.json());
 
-app.listen(3000, () => {
-    console.log('My rest api running on port 3000!')
+app.use(cors())
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Controll-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    next()
 })
+
+app.get('/', (req, res) => res.send('REST API'))
+
+app.use('/feed',feedRoutes)
+
+app.listen(process.env.PORT || 3000)
