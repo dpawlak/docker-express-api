@@ -4,8 +4,6 @@ const cors = require('cors');
 const feedRoutes = require('./routes/feed');
 const  mongoose  = require('mongoose');
 
-const Post = require('./models/post')
-
 const app = express()
 
 app.set('view engine', 'pug')
@@ -23,10 +21,10 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.render('index', { title:"API", message:"Data Collection" })
+    res.render('index', { title:"Job", message:"Work Order" })
 })
 
-app.use('/feed',feedRoutes)
+app.use('/feed', feedRoutes)
 
 mongoose
 .connect(

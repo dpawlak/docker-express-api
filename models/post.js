@@ -1,14 +1,35 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+
 const postSchema = new Schema({
-    title: {
+    job: {
         type: String,
         required: true
     },
-    content: {
+    description: {
         type: String,
         required: true
-    }
+    },
+    address: {
+        type: String,
+        required: true
+    },
+    zipCode: {
+        type: String,
+        required: true
+    },
+    supplies: {
+        type: String,
+        required: true
+    },
+    appointment: {
+        type: String,
+        required: true
+    },
+    operator: {
+        type: String,
+        required: true
+    },
 },
     {timestamps: true}
 )
