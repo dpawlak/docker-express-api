@@ -7,7 +7,7 @@ const  mongoose  = require('mongoose');
 const app = express()
 
 app.set('view engine', 'pug')
-
+app.use(express.static('public'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

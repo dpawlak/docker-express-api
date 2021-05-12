@@ -3,13 +3,38 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/main.css")
+        block styles
     body 
+        .backdrop
         header.main-header 
             button(id="side-menu-toggle") Menu
             nav.main-header__nav
                 ul.main-header__item-list
                     li.main-header__item
-                        a(href="/", class=(path === '/' ? 'active' : '')) Shop
+                        a(href="/", class=(path === '/' ? 'active' : '')) Create Job
                     li.main-header__item
-                        a(href="/products", class=(path === '/products' ? 'active' : '')) Products    
+                        a(href="/feed/posts", class=(path === '/view-jobs' ? 'active' : '')) View Jobs   
+                    li.main-header__item
+                        a(href="/edit-jobs", class=(path === '/' ? 'active' : '')) Edit Jobs
+                    li.main-header__item
+                        a(href="/teams", class=(path === '/products' ? 'active' : '')) Teams
+                    li.main-header__item
+                        a(href="/admin", class=(path === '/products' ? 'active' : '')) Admin
+
+            nav.mobile-nav
+                ul.mobile-nav__item-list
+                    li.mobile-nav__item 
+                        a(href="/", class=(path === '/' ? 'active' : '')) Create Job
+                    li.mobile-nav__item
+                        a(href="/feed/posts", class=(path === '/view-jobs' ? 'active' : '')) View Jobs
+                    li.mobile-nav__item 
+                        a(href="/edit-jobs", class=(path === '/' ? 'active' : '')) Edit Jobs
+                    li.mobile-nav__item
+                        a(href="/teams", class=(path === '/products' ? 'active' : '')) Teams
+                    li.mobile-nav__item 
+                        a(href="/admin", class=(path === '/' ? 'active' : '')) Admin
+               
+
+        script(type='text/javascript' src="/js/main.js")   
         block content

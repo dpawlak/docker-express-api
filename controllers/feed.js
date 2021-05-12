@@ -21,3 +21,21 @@ exports.createPost = (req, res, next) => {
 }
 
     
+// exports.getJobs = (req, res, next) => {
+//     Post.find() 
+//         .countDocuments()
+//         .then(numJobs => {
+//             totalItems = numJobs
+//             return Post.find()
+//         })
+//         .then(jobs => {
+//             res.render('/view-jobs', {
+//             job:job
+//             })
+//         })
+//         .catch(err => {
+//             const error = new Error(err)
+//             error.httpStatusCode = 500
+//             return next(error)
+//         })
+// }
