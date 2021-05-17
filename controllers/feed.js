@@ -1,8 +1,22 @@
 const Post = require('../models/post')
 
 exports.getPosts = (req, res, next) => {
-    res.status(200).json({
-        posts: [{ title:"Daniel", content:"Data Collection Operator" }]
+    // res.status(200).json({
+    //     posts: [{ title:"Daniel", content:"Data Collection Operator" }]
+    // })
+    const postId = req.params.postId
+    Post.find()
+    .then(posts => {
+        res.render('posts', {
+            ps: posts,
+            pageTitle: 'Posts',
+            path:'/posts'
+        })
+    })
+    .catch(err => {
+        const error = new Error(err)
+        error.httpStatusCode = 500
+        return next(error)
     })
 }
 
@@ -19,23 +33,3 @@ exports.createPost = (req, res, next) => {
         console.log(err)
     })
 }
-
-    
-// exports.getJobs = (req, res, next) => {
-//     Post.find() 
-//         .countDocuments()
-//         .then(numJobs => {
-//             totalItems = numJobs
-//             return Post.find()
-//         })
-//         .then(jobs => {
-//             res.render('/view-jobs', {
-//             job:job
-//             })
-//         })
-//         .catch(err => {
-//             const error = new Error(err)
-//             error.httpStatusCode = 500
-//             return next(error)
-//         })
-// }
