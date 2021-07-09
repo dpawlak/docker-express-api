@@ -16,11 +16,11 @@ html(lang="en")
                     li.main-header__item
                         a(href="/feed/posts", class=(path === '/view-jobs' ? 'active' : '')) View Jobs   
                     li.main-header__item
-                        a(href="/edit-jobs", class=(path === '/' ? 'active' : '')) Edit Jobs
+                        a(href="/feed/edit-jobs", class=(path === '/edit-jobs' ? 'active' : '')) Work Order
+                    li.main-header__item 
+                        a(href="/teams", class=(path === '/products' ? 'active' : '')) Sessions
                     li.main-header__item
-                        a(href="/teams", class=(path === '/products' ? 'active' : '')) Teams
-                    li.main-header__item
-                        a(href="/admin", class=(path === '/products' ? 'active' : '')) Admin
+                        a(href="/admin", class=(path === '/products' ? 'active' : '')) Teams
 
             nav.mobile-nav
                 ul.mobile-nav__item-list
@@ -29,11 +29,11 @@ html(lang="en")
                     li.mobile-nav__item
                         a(href="/feed/posts", class=(path === '/view-jobs' ? 'active' : '')) View Jobs
                     li.mobile-nav__item 
-                        a(href="/edit-jobs", class=(path === '/' ? 'active' : '')) Edit Jobs
+                        a(href="/feed/edit-jobs", class=(path === '/edit-jobs' ? 'active' : '')) Work Order
                     li.mobile-nav__item
-                        a(href="/teams", class=(path === '/products' ? 'active' : '')) Teams
+                        a(href="/teams", class=(path === '/products' ? 'active' : '')) Sessions
                     li.mobile-nav__item 
-                        a(href="/admin", class=(path === '/' ? 'active' : '')) Admin
+                        a(href="/admin", class=(path === '/' ? 'active' : '')) Teams
                
 
         script(type='text/javascript' src="/js/main.js")   

@@ -7,7 +7,12 @@ block content
       title= title
     body
       h1 Posts page
+      
       each p in ps
         p Job: #{p.job} 
         p Description: #{p.description}
+        div.functionality 
+          a(href="#") PDF
+          a(href="#") Edit
+          a(href="#") Delete
         hr

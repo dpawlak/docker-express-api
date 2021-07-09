@@ -8,8 +8,6 @@ router.get('/posts', feedController.getPosts)
 
 router.post('/create-post',feedController.createPost)
 
-// router.get('/posts', feedController.getJobs)
-
-router.get('/edit-jobs', feedController.getPosts)
+router.get('/edit-jobs/:id', feedController.getEditPost)
 
 module.exports = router

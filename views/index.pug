@@ -5,26 +5,17 @@ block content
   main
     head
       title= title
-    body
+    body.centered
       h1= message
-      h2 Add data
-
-
-
-      form(action="/feed/create-post" method="POST")
-          h3 Job: 
-            input(type="text", name="job", placeholder="Job" required)
-          h3 Description: 
-            input(type="text", name="description", placeholder="Description" required)
-          h3 Address: 
-            input(type="text", name="address", placeholder="Address" required)
-          h3 Zip Code: 
-            input(type="text", name="zipCode", placeholder="Zip Code" required)
-          h3 Supplies: 
-            input(type="text", name="supplies", placeholder="Supplies" required)
-          h3 Appointment: 
-            input(type="text", name="appointment", placeholder="Appointment" required)
-          h3 Operator: 
-            input(type="text", name="operator", placeholder="Operator" required)
-          
+      section.work__order_create
+        div(id="work__order_form_style")
+        form.work__order_form(action="/feed/create-post" method="POST")
+          input(type="text", name="job", placeholder="Job" required) 
+          input(type="text", name="description", placeholder="Description" required) 
+          input(type="text", name="address", placeholder="Address" required)
+          input(type="text", name="zipCode", placeholder="Zip Code" required)
+          input(type="text", name="supplies", placeholder="Supplies" required) 
+          input(type="text", name="appointment", placeholder="Appointment" required) 
+          input(type="text", name="operator", placeholder="Operator" required)
+            
           input(type="submit")
