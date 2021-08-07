@@ -4,8 +4,29 @@ block content
 
   main
     h1 Edit Jobs
-    form(action="/feed/edit-jobs" method="PUT")
-      label(for="title") Title
-      input(type="text" name="title" value=post.title)
-      input(type="hidden" name="productId" value=post._id ) 
-      button.btn(type="submit") Update Product
+    form(action="/feed/edit-jobs" method="POST")
+
+      label(for="job") Job
+      input(type="text" name="job" value=post.job)#job
+
+      label(for="title") Description
+      input(type="text" name="description" value=post.description)#description
+
+      label(for="title") Address
+      input(type="text" name="address" value=post.address)#address
+
+      label(for="title") Zip Code
+      input(type="text" name="zipCode" value=post.zipCode)#address
+
+      label(for="title") Supplies
+      input(type="text" name="supplies" value=post.supplies)#supplies
+
+      label(for="title") Appointment
+      input(type="text" name="appointment" value=post.appointment)#appointment
+
+      label(for="title") Operator
+      input(type="text" name="operator" value=post.operator)#operator
+
+      input(type="hidden" name="_id" value=post._id )
+
+      button(type="submit") Update Product

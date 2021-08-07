@@ -2,7 +2,7 @@ const Post = require('../models/post')
 const { validationResult } = require('express-validator/check') 
 
 exports.getPosts = (req, res, next) => {
-    const postId = req.params.postId
+    const pstId = req.params.id
     Post.find()
     .then(posts => {
         res.render('posts', {
@@ -32,10 +32,8 @@ exports.createPost = (req, res, next) => {
 }
 
 exports.getEditPost = (req, res, next) => {
-
     const pstId = req.params.id
-    console.log(req.body);
-    Post.findById(pstId, req.body)
+    Post.findById(pstId)
     .then(post => {
         if (!post) {
             return res.redirect('/')
@@ -44,12 +42,52 @@ exports.getEditPost = (req, res, next) => {
             pageTitle: 'Edit Jobs',
             path: '/edit-jobs/',
             post: post,
+            oldInput: {
+                job: '',
+                description: '',
+                address: '',
+                zipCode: '',
+                supplies: '',
+                appointment: '',
+                operator: ''
+            },
+            validationErrors: []  
         })
     })
     .catch(err => {
         const error = new Error(err)
         error.httpStatusCode = 500
         return next(error) 
-    })
-        
+    })   
 }
+
+exports.postEditPost = (req, res, next) => {
+    
+    const pstId = req.body._id
+    const updatedJob = req.body.job
+    const updatedDescription = req.body.description
+    const updatedAddress = req.body.address
+    const updatedZipCode = req.body.zipCode
+    const updatedSupplies = req.body.supplies
+    const updatedAppointment = req.body.appointment 
+    const updatedOperator = req.body.operator
+
+    Post.findById(pstId)
+        .then(post => {
+            post.job = updatedJob
+            post.description = updatedDescription
+            post.address = updatedAddress
+            post.zipCode = updatedZipCode
+            post.supplies = updatedSupplies
+            post.appointment = updatedAppointment
+            post.operator = updatedOperator   
+            return post.save()
+        })
+        .then(result => {
+            console.log('UPDATED POST')
+            res.redirect('/feed/posts')
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }   

@@ -12,7 +12,7 @@ block content
         p Job: #{p.job} 
         p Description: #{p.description}
         div.functionality 
-          a(href="#") PDF
-          a(href="#") Edit
-          a(href="#") Delete
+          a(href="/feed/edit-jobs/"+p._id) Edit
+          a(href="/feed/edit-jobs/"+p._id) Delete
+
         hr

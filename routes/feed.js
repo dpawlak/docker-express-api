@@ -10,4 +10,6 @@ router.post('/create-post',feedController.createPost)
 
 router.get('/edit-jobs/:id', feedController.getEditPost)
 
+router.post('/edit-jobs', feedController.postEditPost)
+
 module.exports = router

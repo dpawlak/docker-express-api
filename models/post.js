@@ -29,7 +29,7 @@ const postSchema = new Schema({
     operator: {
         type: String,
         required: true
-    }
+    },
 },
     {timestamps: true}
 )
