@@ -3,10 +3,10 @@ extends ./layouts/main-layout.pug
 block content
 
   main
-    head
-      title= title
+    if (errorMessage)
+      div(class="user-message user-message--error") #{errorMessage}
     body.centered
-      h1= message
+      h1 Workers
       section.work__order_create
         div(id="work__order_form_style")
         form.work__order_form(action="/feed/create-post" method="POST")

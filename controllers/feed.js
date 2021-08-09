@@ -18,14 +18,14 @@ exports.getPosts = (req, res, next) => {
     })
 }
 
-exports.createPost = (req, res, next) => {
+exports.createPost = (req, res, next) => {    
     const myData = new Post(req.body)
     myData.save()
     .then(item => {
-        res.send("item saved to database...")
-        
+        res.redirect('/')        
     })
     .catch(err => {
+        // make an error page
         res.status(400).send("unable to save to database!")
         console.log(err)
     })
@@ -91,3 +91,20 @@ exports.postEditPost = (req, res, next) => {
             console.log(err)
         })
     }   
+
+exports.deletePost = (req, res) => {
+    const pstId = req.params.id
+    Post.findById(pstId).then(post => {
+        if (!post) {
+            return next(new Error('Post not found.'))
+        }
+        return Post.deleteOne({_id:pstId})
+    })
+   .then(() => {
+       console.log("Destroyed Post")
+
+   })
+    .catch(err => {
+        console.log(err)
+    })
+}

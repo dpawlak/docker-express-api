@@ -12,4 +12,6 @@ router.get('/edit-jobs/:id', feedController.getEditPost)
 
 router.post('/edit-jobs', feedController.postEditPost)
 
+router.delete('/post/:id', feedController.deletePost)
+
 module.exports = router

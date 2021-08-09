@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.render('index', { title:"Job", message:"Work Order" })
+    res.render('index')
 })
 
 app.use('/feed', feedRoutes)

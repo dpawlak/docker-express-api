@@ -12,7 +12,8 @@ block content
         p Job: #{p.job} 
         p Description: #{p.description}
         div.functionality 
-          a(href="/feed/edit-jobs/"+p._id) Edit
-          a(href="/feed/edit-jobs/"+p._id) Delete
-
-        hr
+          a.btn(href="/feed/edit-jobs/"+p._id) Edit
+          input(type="hidden" name="pstId" value=p._id )
+          button.btn(type="button" onClick="deletePost(this)") Delete
+          hr
+    script(type='text/javascript' src='/js/admin.js')

@@ -193,6 +193,22 @@ form {
 .functionality a {
   padding: 10px;
 }
+
+.user-message {
+  margin: auto;
+  width: 90%;
+  border: 1px solid rgb(76, 149, 238);
+  padding: 1rem;
+  border-radius: 3px;
+  background: rgb(199, 217, 241);
+  text-align: center;
+}
+
+.user-message--error {
+  border-color: red;
+  background: rgb(233, 136, 136);
+}
+
 @media (min-width: 768px) {
   .main-header__nav {
     display: flex;
