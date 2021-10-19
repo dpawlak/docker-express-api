@@ -1,19 +1,38 @@
-extends ./layouts/main-layout.pug
+extends ./main-layout.pug
 
 block content
 
   main
-    head
-      title= title
     body
-      h1 Posts page
-      
-      each p in ps
-        p Job: #{p.job} 
-        p Description: #{p.description}
-        div.functionality 
-          a.btn(href="/feed/edit-jobs/"+p._id) Edit
-          input(type="hidden" name="pstId" value=p._id )
-          button.btn(type="button" onClick="deletePost(this)") Delete
-          hr
-    script(type='text/javascript' src='/js/admin.js')
+      div.container
+
+        h1 View Jobs
+        
+        section.pagination 
+          if currentPage !== 1 && previousPage !== 1
+            a(href="?page=1") 1
+          if hasPreviousPage
+            a(href="?page="+previousPage) #{previousPage}
+          if hasNextPage
+              a(href="?page="+nextPage) #{nextPage}
+          if lastPage !== currentPage && nextPage !== lastPage
+              a(href="?page="+lastPage) #{lastPage}
+                    
+
+        hr
+
+        div(id="view-jobs-container")
+          each p in ps
+            div(id="view-jobs--card")
+              a(id="job") #{p.job}
+              a(id="address") #{p.address}
+              br
+              a(id="desc") #{p.description}
+              br
+              div(id="btns")
+                a(class="btn btn-primary btn-sm" href="/feed/edit-jobs/"+p._id) Edit
+                input(type="hidden" name="pstId" value=p._id )
+                button(class="btn btn-danger btn-sm" type="button" onClick="deletePost(this)" id="delete") Delete
+
+
+  script(type='text/javascript' src='/js/admin.js')

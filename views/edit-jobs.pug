@@ -1,32 +1,19 @@
-extends ./layouts/main-layout.pug
+extends ./main-layout.pug
 
 block content
 
   main
-    h1 Edit Jobs
-    form(action="/feed/edit-jobs" method="POST")
-
-      label(for="job") Job
-      input(type="text" name="job" value=post.job)#job
-
-      label(for="title") Description
-      input(type="text" name="description" value=post.description)#description
-
-      label(for="title") Address
-      input(type="text" name="address" value=post.address)#address
-
-      label(for="title") Zip Code
-      input(type="text" name="zipCode" value=post.zipCode)#address
-
-      label(for="title") Supplies
-      input(type="text" name="supplies" value=post.supplies)#supplies
-
-      label(for="title") Appointment
-      input(type="text" name="appointment" value=post.appointment)#appointment
-
-      label(for="title") Operator
-      input(type="text" name="operator" value=post.operator)#operator
-
-      input(type="hidden" name="_id" value=post._id )
-
-      button(type="submit") Update Product
+    body
+      div.container(id="edit-jobs--page")
+        form(action="/feed/edit-jobs" method="POST")
+          div.card(id="edit-jobs--card")
+            h1 Edit Jobs
+            input(type="text" name="job" value=post.job)#job
+            input(type="text" name="description" value=post.description)#description
+            input(type="text" name="address" value=post.address)#address
+            input(type="text" name="zipCode" value=post.zipCode)#address
+            input(type="text" name="supplies" value=post.supplies)#supplies
+            input(type="text" name="appointment" value=post.appointment)#appointment
+            input(type="text" name="operator" value=post.operator)#operator
+            input(type="hidden" name="_id" value=post._id )
+            button(class="btn btn-primary" type="submit" id="submit_button") Update Job

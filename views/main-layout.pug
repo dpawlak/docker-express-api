@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+    head
+        title Data Collection App
+        link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css")
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/main.css")
+        
+        
+    body 
+        .backdrop
+        
+        header.main-header
+            button(id="side-menu-toggle") Menu
+            nav.main-header__nav
+                ul.main-header__item-list
+                    li.main-header__item
+                        a(href="/", class=(path === '/' ? 'active' : '')) Create Job
+                    li.main-header__item
+                        a(href="/feed/posts", class=(path === '/view-jobs' ? 'active' : '')) View Jobs   
+                    li.main-header__item 
+                        a(href="/auth/login", class=(path === '/login' ? 'active' : '')) Login
+                    li.main-header__item
+                        a(href="/auth/signup", class=(path === '/signup' ? 'active' : '')) Signup
+
+            nav.mobile-nav
+                ul.mobile-nav__item-list
+                    li.mobile-nav__item 
+                        a(href="/", class=(path === '/' ? 'active' : '')) Create Job
+                    li.mobile-nav__item
+                        a(href="/feed/posts", class=(path === '/view-jobs' ? 'active' : '')) View Jobs
+                    li.mobile-nav__item
+                        a(href="/auth/login", class=(path === '/login' ? 'active' : '')) Login
+                    li.mobile-nav__item 
+                        a(href="/auth/signup", class=(path === '/signup' ? 'active' : '')) Signup
+               
+        
+        .container 
+            != messages('message', locals)         
+
+        script(type='text/javascript' src="/js/main.js")   
+        block content

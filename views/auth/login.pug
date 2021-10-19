@@ -1,0 +1,16 @@
+extends ../main-layout.pug
+
+block content
+
+    main
+        form.login-form(action="/login" method="POST")
+            .form-control
+                label(for="email") E-Mail
+                input(class='email' type="email" name="email" id="email" required)
+            .form-control
+                label(for="password") Password
+                input(class='password' id="password" type="password" name="password" required)
+
+            input(type="hidden" name="_csrf" value=csrfToken)
+            button.btn(type="submit") Login
+        a(href="/auth/signup") Signup

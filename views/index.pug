@@ -1,21 +1,21 @@
-extends ./layouts/main-layout.pug
+extends ./main-layout.pug
 
 block content
 
   main
-    if (errorMessage)
-      div(class="user-message user-message--error") #{errorMessage}
-    body.centered
-      h1 Workers
-      section.work__order_create
-        div(id="work__order_form_style")
-        form.work__order_form(action="/feed/create-post" method="POST")
-          input(type="text", name="job", placeholder="Job" required) 
-          input(type="text", name="description", placeholder="Description" required) 
-          input(type="text", name="address", placeholder="Address" required)
-          input(type="text", name="zipCode", placeholder="Zip Code" required)
-          input(type="text", name="supplies", placeholder="Supplies" required) 
-          input(type="text", name="appointment", placeholder="Appointment" required) 
-          input(type="text", name="operator", placeholder="Operator" required)
+    body
+      div.container(id="create-job__display")
+        form(action="/feed/create-post" method="POST")
+          div(class="card" id="create-job__form_card")
+            h1 Create Job
+            input(type="text", name="job", placeholder="Job" required) 
+            input(type="text", name="description", placeholder="Description" required) 
+            input(type="text", name="address", placeholder="Address" required)
+            input(type="text", name="zipCode", placeholder="Zip Code" required)
+            input(type="text", name="supplies", placeholder="Supplies" required) 
+            input(type="text", name="appointment", placeholder="Appointment" required) 
+            input(type="text", name="operator", placeholder="Operator" required)
+            input(class="btn btn-primary" type="submit" id="submit_button") 
+        
+
             
-          input(type="submit")

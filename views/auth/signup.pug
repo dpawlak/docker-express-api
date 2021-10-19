@@ -1,0 +1,19 @@
+extends ../main-layout
+
+block content
+    main
+        form.login-form(action="/auth/signup" method="POST")
+
+          .form-control
+            label(for="email") E-Mail
+            input(type="email" name="email")#email
+
+          .form-control
+            label(for="password") Password
+            input(type="password" name="password")#password
+
+          .form-control
+            label(for="confirmPassword") Confirm Password
+            input(type="password"  name="confirmPassword")#confirmPassword
+
+          button(class='btn btn-primary' type="submit") Signup

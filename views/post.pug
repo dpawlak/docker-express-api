@@ -3,3 +3,6 @@ extends ./layouts/main-layout.pug
 block content
 
   main
+    if (errorMessage)
+      div(class="user-message user-message--error") #{errorMessage}
+    
